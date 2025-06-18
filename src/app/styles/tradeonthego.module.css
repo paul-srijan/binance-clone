@@ -1,0 +1,52 @@
+.tradeonthego{
+    /* background-color: rebeccapurple; */
+    display: flex;
+     padding-left: 160px;
+    padding-right: 140px;
+    gap: 224px;
+}
+.demoImgDiv{
+    padding-left: 144px;
+}
+
+.rightDiv h1{
+    font-size: 36px;
+}
+.downloadQR{
+
+    width: fit-content;
+    display: flex;
+    gap: 20px;
+    padding-top: 24px;
+    /* border: 2px solid white; */
+    /* border: #5E6673; */
+    /* border: ; */
+}
+.qrImgDiv{
+    padding: 24px;
+    border: 2px solid #848E9C;
+    border-radius: 24px;
+    background-color: black;
+    /* background-color: ; */
+    border: 2px solid rgb(37 49 57/var(--tw-border-opacity))!important;
+}
+.qrImg{
+    height: 180px;
+    background-color: white;
+    border-radius: 12px;
+    border: 2px solid white;
+    /* padding: 44px; */
+
+}
+
+.scanDownload{
+    font-size: 16px;
+    font-weight: 400;
+    color: #848E9C;
+    
+}
+.downloadQR h2{
+    font-size: 20px;
+    text-align: center;
+    align-content: center;
+}

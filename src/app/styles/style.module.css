@@ -1,0 +1,221 @@
+.main{
+    background-color: #181A20;
+    color: white;
+    height: 100%;
+}
+
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    margin-top: -12px;
+}
+.navLeft{
+    padding-left: 0px;
+
+}
+.navLeftUl {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    padding-left: -24px;
+    margin-left: -20px;
+}
+.navLeftUl li{
+    
+    align-content: center;
+    /* gap: 24px; */
+}
+.navLeftUl li a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.binanceLogo{
+    height: 60px;
+}
+
+.navRightUl{
+    list-style: none;
+    display: flex;
+    height: 60px;
+    gap: 20px;
+   
+}
+.navRightUl li{
+    align-items: center;
+    align-content: center;
+    gap: 24px;
+}
+.navRightUl li a{
+    color: white;
+    text-decoration: none;
+}
+
+.depositBtn{
+    padding: 6px 16px;
+    border-radius: 6px;
+    background-color: #fcd535;
+}
+
+.hero{
+    display: flex;
+    padding-left: 160px;
+    padding-right: 180px;
+    margin-top: -6px;
+    padding-bottom: 88px;
+}
+.heroLeft h1{
+    font-size: 60px;
+}
+.trade{
+    color: #fcd535;
+}
+.heroLeftmid{
+    margin-top: -18px;
+
+    padding-bottom: 24px;
+}
+
+.heroLeftmidp1{
+    font-weight: bold;
+    font-size: 14px;
+}
+.balancePrice{
+    font-size: 38px;
+    font-weight: bold;
+}
+.heroLeftbuttom{
+    display: flex;
+    gap: 20px;
+}
+.tradeButton{
+    background-color: #fcd535;
+    padding: 16px 44px;
+    border-radius: 12px;
+    font-weight: bold;
+    font-size: 16px;
+}
+.watchBtn{
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    /* background-color: rebeccapurple; */
+    font-size: 16px;
+
+}
+.binanceAnnc{
+    /* margin-top: 160px; */
+    font-size: 14px;
+    margin-top: 80px;
+}
+.dateAnc{
+    color: gray;
+}
+
+/* hero right */
+.heroRightTop{
+    background-color: #1E2329;
+    padding: 16px;
+    border-radius: 24px;
+
+}
+.heroRightTopHeading{
+    display: flex;
+    font-weight: bold;
+    gap: 12px;
+}
+.newListing , .Viewallcoins{
+    color: #848E9C;
+    /* float: right; */
+   
+}
+.Viewallcoins{
+    /* font-size: 12px; */
+    font-weight: normal;
+ padding-left: 80px;
+
+    float: right;
+}
+
+
+/* coinTable */
+.coinImgTd{
+    height: 40px;
+    align-content: center;
+    align-items: center;
+    font-size: 14px;
+   display: flex;
+    gap: 12px;
+    
+}
+.coinImgTd span{
+    color: #848E9C;
+    /* padding-left: 25px; */
+    /* padding-bottom: 12px; */
+    
+}
+.coinImg{
+    height: 32px;
+    border-radius: 50%;
+}
+.coinPrice{
+    /* float: right; */
+    padding-left: 44px;
+}
+.coinPercent{
+    /* float: right; */
+    padding-left: 44px;
+}
+.heroRightMid{
+
+    background-color: #1E2329;
+    /* padding: 16px; */
+    padding-left: 24px;
+    padding-right: 24px;
+    padding-bottom: 16px;
+    border-radius: 24px;
+    padding-top: 16px;
+    margin-top: 24px;
+
+}
+
+.heroRightMidTop{
+    display: flex;
+    justify-content: space-between;
+    /*  */
+    align-items: center;
+
+}
+.heroRightMidTop h2{
+    font-size: 16px;
+}
+.heroRightMidTop span{
+    color: #848E9C;
+    font-size: 16px;
+}
+.newsList{
+    list-style-type: none;
+    margin-left: -36px;
+}
+.newsList li{
+    /* color: white; */
+    gap: 20px;
+    padding-bottom: 16px;
+    font-size: 14px;
+
+}
+.newsList li a{
+    color: white;
+    text-decoration: none;
+}
+.red {
+  color: red;
+}
+
+.green {
+  color: #4caf50;
+}

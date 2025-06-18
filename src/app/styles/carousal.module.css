@@ -1,0 +1,33 @@
+.Carousal{
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    margin-bottom: 44px;
+}
+.binanceImg{
+    justify-content: center;
+    align-items: center;
+    width: 1200px;
+    text-align: center;
+    align-content: center;
+    padding-left: 200px;
+    border-radius: 12px;
+    padding-bottom: 24px;
+}
+
+.carousalButtons{
+    display: flex;
+    gap: 6px;
+ 
+    justify-content: center;
+}
+
+.carousalButtons button{
+    height: 4px;
+    width: 12px;
+    background-color: gray;
+    border: none;
+}
+.active{
+    background-color: white !important;
+}
