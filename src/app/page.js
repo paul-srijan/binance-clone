@@ -21,17 +21,30 @@ export default function Home() {
 
   const [coinData, setCoinData] = useState({});
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const res = await fetch('/api/popular');
-        const data = await res.json();
-        setCoinData(data);
-      } catch (err) {
-        console.error('Error fetching coin data:', err);
-      }
-    };
+  const fetchData = async () => {
+    try {
+      const response = await fetch("https://api.binance.com/api/v3/ticker/24hr?");
+      const data = await response.json();
+      const symbols = ['BTCUSDT', 'ETHUSDT', 'BNBUSDT', 'XRPUSDT', 'SOLUSDT'];
 
+      const filtered = data.filter(item => symbols.includes(item.symbol));
+
+      const result = {};
+      filtered.forEach(item => {
+        result[item.symbol] = {
+          price: parseFloat(item.lastPrice).toFixed(2),
+          change: parseFloat(item.priceChangePercent).toFixed(2),
+        };
+      });
+      setCoinData(result);
+      console.log(data);
+
+    } catch (err) {
+      console.error('Error fetching coin data:', err);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
     const interval = setInterval(fetchData, 4000); // refresh every 4s
     return () => clearInterval(interval);
@@ -43,40 +56,40 @@ export default function Home() {
       {/* hello */}
 
       <nav className={styles.navbar}>
-      <div className={styles.navLeft}>
-        <ul className={styles.navLeftUl}>
-          <li> <a href="" ><img  src="binance.png" className={styles.binanceLogo} /></a>  </li>
-          <li> <a href="" >Buy Crupto </a>  </li>
-          <li> <a  href=""> Markets </a>  </li>
-          <li> <a  href=""> Trades </a></li>
-          <li> <a  href=""> Futures</a> </li>
-           <li> <a  href=""> Futures</a> </li>
-            <li> <a  href=""> Earn</a> </li>
+        <div className={styles.navLeft}>
+          <ul className={styles.navLeftUl}>
+            <li> <a href="" ><img src="binance.png" className={styles.binanceLogo} /></a>  </li>
+            <li> <a href="" >Buy Crupto </a>  </li>
+            <li> <a href=""> Markets </a>  </li>
+            <li> <a href=""> Trades </a></li>
+            <li> <a href=""> Futures</a> </li>
+            <li> <a href=""> Futures</a> </li>
+            <li> <a href=""> Earn</a> </li>
             <li><a href="">Squares </a></li>
             <li> <a href="">More</a> </li>
 
-        </ul>
-      </div>
-      <div className={styles.narRight}>
-        <ul className={styles.navRightUl}>
-          <li> <a href=""></a>       <FaSearch />  Search </li>  
-          <li> <a href=""> 
+          </ul>
+        </div>
+        <div className={styles.narRight}>
+          <ul className={styles.navRightUl}>
+            <li> <a href=""></a>       <FaSearch />  Search </li>
+            <li> <a href="">
               <button className={styles.depositBtn}><MdDownload /> Deposit</button>
-           </a> </li> 
-          <li> <a href="">   <FaUserCircle /> </a> </li> 
-          <li> <a href=""><IoMdSquare /></a> </li> 
-          <li> <a href="">     <FaBell className={styles.bellIcon} /></a> </li> 
-          <li> <a href="">  <FaExchangeAlt /> </a> </li> 
-          <li> <a href="">   <FaGlobe /> </a> </li> 
-          <li> <a href=""> <FaMoon /> </a> </li> 
-              <div className={styles.right}>
-  
-      
-   
-      </div>
+            </a> </li>
+            <li> <a href="">   <FaUserCircle /> </a> </li>
+            <li> <a href=""><IoMdSquare /></a> </li>
+            <li> <a href="">     <FaBell className={styles.bellIcon} /></a> </li>
+            <li> <a href="">  <FaExchangeAlt /> </a> </li>
+            <li> <a href="">   <FaGlobe /> </a> </li>
+            <li> <a href=""> <FaMoon /> </a> </li>
+            <div className={styles.right}>
 
-        </ul>
-      </div>
+
+
+            </div>
+
+          </ul>
+        </div>
       </nav>
 
 
@@ -111,39 +124,38 @@ export default function Home() {
 
             <div className={styles.coinTable}>
 
-            <table>
-        <tbody>
-          {[
-            { symbol: 'BTCUSDT', name: 'Bitcoin', icon: 'bitcoin.png', label: 'BTC' },
-            { symbol: 'ETHUSDT', name: 'Ethereum', icon: 'eth.png', label: 'ETH' },
-            { symbol: 'BNBUSDT', name: 'BNB', icon: 'bnb.png', label: 'BNB' },
-            { symbol: 'XRPUSDT', name: 'XRP', icon: 'xrp.png', label: 'XRP' },
-            { symbol: 'SOLUSDT', name: 'Solana', icon: 'solana.png', label: 'SOL' },
-          ].map((coin) => (
-            <tr key={coin.symbol}>
-              <td className={styles.coinImgTd}>
-                <img src={coin.icon} className={styles.coinImg} />
-                {coin.label} <span>{coin.name}</span>
-              </td>
-              <td className={styles.coinPrice}>
-                ${coinData[coin.symbol]?.price || '--'}
-              </td>
-              <td
-                className={`${styles.coinPercent} ${
-                  coinData[coin.symbol]?.change < 0
-                    ? styles.red
-                    : styles.green
-                }`}
-              >
-                {coinData[coin.symbol]?.change || '--'}%
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+              <table>
+                <tbody>
+                  {[
+                    { symbol: 'BTCUSDT', name: 'Bitcoin', icon: 'bitcoin.png', label: 'BTC' },
+                    { symbol: 'ETHUSDT', name: 'Ethereum', icon: 'eth.png', label: 'ETH' },
+                    { symbol: 'BNBUSDT', name: 'BNB', icon: 'bnb.png', label: 'BNB' },
+                    { symbol: 'XRPUSDT', name: 'XRP', icon: 'xrp.png', label: 'XRP' },
+                    { symbol: 'SOLUSDT', name: 'Solana', icon: 'solana.png', label: 'SOL' },
+                  ].map((coin) => (
+                    <tr key={coin.symbol}>
+                      <td className={styles.coinImgTd}>
+                        <img src={coin.icon} className={styles.coinImg} />
+                        {coin.label} <span>{coin.name}</span>
+                      </td>
+                      <td className={styles.coinPrice}>
+                        ${coinData[coin.symbol]?.price || '--'}
+                      </td>
+                      <td
+                        className={`${styles.coinPercent} ${coinData[coin.symbol]?.change < 0
+                            ? styles.red
+                            : styles.green
+                          }`}
+                      >
+                        {coinData[coin.symbol]?.change || '--'}%
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
 
             </div>
-            
+
           </div>
 
           <div className={styles.heroRightMid}>
@@ -170,16 +182,16 @@ export default function Home() {
 
       </section>
 
-          <Carousal />
-       <Tradeonthego />
+      <Carousal />
+      <Tradeonthego />
       <StartTradingNow />
       <Footer />
-      
 
 
 
 
-      
+
+
     </section>
   );
 }
